@@ -1,0 +1,42 @@
+\documentclass[hyperref={colorlinks,citecolor=pink,linkcolor=red,urlcolor=blue}]{beamer}
+
+\usetheme{Frankfurt}
+
+\definecolor{mygreen}{cmyk}{0.82,0.11,1,0.25}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
+\setbeamercolor{structure}{fg=mygreen}
+
+\begin{document}
+\begin{frame}{Imagemagick Cheetsheet}
+
+
+\includegraphics[width=1in]{Imagemagick-logo.png}
+
+\begin{columns}[t]
+	\column{.5\textwidth}
+		\begin{exampleblock}{Convert Formats}
+			\texttt{convert}
+		\end{exampleblock}	
+	\column{.5\textwidth}
+		\begin{exampleblock}{Trim}
+			\texttt{trim}
+		\end{exampleblock}
+\end{columns}
+
+\begin{exampleblock}{Draw Text}
+	\texttt{text}
+\end{exampleblock}
+
+\begin{exampleblock}{Montage}
+	\texttt{montage}
+\end{exampleblock}
+
+\begin{exampleblock}{Animation}
+	\texttt{morph}
+\end{exampleblock}
+
+\href{http://www.imagemagick.org}{Imagemagick}
+\end{frame}
+\end{document}
