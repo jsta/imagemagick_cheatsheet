@@ -1,6 +1,10 @@
 \documentclass[hyperref={colorlinks,citecolor=pink,linkcolor=red,urlcolor=blue}]{beamer}
 
 \usetheme{Frankfurt}
+\usepackage{animate}
+
+\newcommand\Fontvii{\fontsize{7pt}{7.2}\selectfont}
+
 
 \definecolor{mygreen}{cmyk}{0.82,0.11,1,0.25}
 \setbeamertemplate{blocks}[rounded][shadow=false]
@@ -10,45 +14,57 @@
 
 \begin{document}
 \begin{frame}{Imagemagick Cheatsheet}
+\Fontvii
+
+% =======================================================
 
 \begin{minipage}[0.2\textheight]{\textwidth}
 	\begin{columns}[T]
-		\column{.3\textwidth}
-			\includegraphics[width=1in]{Imagemagick-logo.png}\\
-			\small{wizard.tif}
-%		\end{column}
-		\column{.7\textwidth}
+		\column{.12\textwidth}
+			\includegraphics[height=.5in]{im-border.png}\\
+		\column{.35\textwidth}
 			\begin{exampleblock}{Change filetype}
-				\texttt{\$ convert im.tif im.png}\\
-				\texttt{convert}\\
-				\texttt{convert}
+				\texttt{\$ convert im-border.tif im-border.png}
 			\end{exampleblock}	
-%		\end{column}
+		\column{.12\textwidth}
+			\includegraphics[height=.5in]{im.png}\\
+		\column{.35\textwidth}
+			\begin{exampleblock}{Trim + Border}
+				\texttt{\$ convert im-border.tif -trim im.png}
+			\end{exampleblock}	
+	\end{columns}
+\end{minipage}\\
+
+% =======================================================
+
+\begin{minipage}[0.2\textheight]{\textwidth}
+	\begin{columns}[T]
+		\column{.25\textwidth}
+			\includegraphics[width=1in]{im-montage.png}\\
+		\column{.75\textwidth}
+			\begin{exampleblock}{Montage}
+				\texttt{\$ montage im.png im-sepia.png -geometry +2+2 -tile 2x im-montage.png}\\
+			\end{exampleblock}	
 	\end{columns}
 \end{minipage}
 
-\begin{columns}[t]
-	\column{.5\textwidth}
-			\begin{exampleblock}{Trim}
-				\texttt{trim}
-			\end{exampleblock}
-%	\end{column}
-	\column{.5\textwidth}
-		\begin{exampleblock}{Draw Text}
-			\texttt{text}
-		\end{exampleblock}
-%	\end{column}
-\end{columns}
+% =======================================================
 
-\begin{exampleblock}{Montage}
-	\texttt{montage}
-\end{exampleblock}
+\begin{minipage}[0.2\textheight]{\textwidth}
+	\begin{columns}[T]
+		\column{.15\textwidth}
+			\animategraphics[loop,autoplay,width=.75\linewidth]{2}{im-animate-}{0}{11}
+		\column{.85\textwidth}
+			\begin{exampleblock}{Animated gifs}
+				\texttt{\$ convert -delay 10 im.png im-sepia.png im-animate.gif}\\
+				\texttt{\$ convert -delay 10 -morph 10 im.png im-sepia.png im-animate.gif}
+			\end{exampleblock}	
+	\end{columns}
+\end{minipage}
 
-\begin{exampleblock}{Animation}
-	\texttt{morph}
-\end{exampleblock}
+% =======================================================
 
-\includegraphics[width=.3in]{cc.large.png} Authored by \href{http://jsta.github.io}{Joseph Stachelek}; See full docs @
+\includegraphics[height=.15in]{cc.large.png} Authored by \href{http://jsta.github.io}{Joseph Stachelek}; See full docs @
 \href{http://www.imagemagick.org}{Imagemagick}
 \end{frame}
 \end{document}
