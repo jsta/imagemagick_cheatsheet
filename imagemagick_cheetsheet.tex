@@ -9,25 +9,36 @@
 \setbeamercolor{structure}{fg=mygreen}
 
 \begin{document}
-\begin{frame}{Imagemagick Cheetsheet}
+\begin{frame}{Imagemagick Cheatsheet}
 
-
-\includegraphics[width=1in]{Imagemagick-logo.png}
+\begin{minipage}[0.2\textheight]{\textwidth}
+	\begin{columns}[T]
+		\column{.3\textwidth}
+			\includegraphics[width=1in]{Imagemagick-logo.png}\\
+			\small{wizard.tif}
+%		\end{column}
+		\column{.7\textwidth}
+			\begin{exampleblock}{Change filetype}
+				\texttt{\$ convert im.tif im.png}\\
+				\texttt{convert}\\
+				\texttt{convert}
+			\end{exampleblock}	
+%		\end{column}
+	\end{columns}
+\end{minipage}
 
 \begin{columns}[t]
 	\column{.5\textwidth}
-		\begin{exampleblock}{Convert Formats}
-			\texttt{convert}
-		\end{exampleblock}	
+			\begin{exampleblock}{Trim}
+				\texttt{trim}
+			\end{exampleblock}
+%	\end{column}
 	\column{.5\textwidth}
-		\begin{exampleblock}{Trim}
-			\texttt{trim}
+		\begin{exampleblock}{Draw Text}
+			\texttt{text}
 		\end{exampleblock}
+%	\end{column}
 \end{columns}
-
-\begin{exampleblock}{Draw Text}
-	\texttt{text}
-\end{exampleblock}
 
 \begin{exampleblock}{Montage}
 	\texttt{montage}
@@ -37,6 +48,7 @@
 	\texttt{morph}
 \end{exampleblock}
 
+\includegraphics[width=.3in]{cc.large.png} Authored by \href{http://jsta.github.io}{Joseph Stachelek}; See full docs @
 \href{http://www.imagemagick.org}{Imagemagick}
 \end{frame}
 \end{document}
