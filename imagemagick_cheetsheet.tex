@@ -7,17 +7,29 @@
 
 
 \definecolor{mygreen}{cmyk}{0.82,0.11,1,0.25}
+\definecolor{mywhite}{cmyk}{0,0,0,0}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \setbeamertemplate{navigation symbols}{}
 \addtobeamertemplate{block begin}{\pgfsetfillopacity{0.8}}{\pgfsetfillopacity{1}}
-\setbeamercolor{structure}{fg=mygreen}
+\setbeamercolor{structure}{fg=mywhite}
+\setbeamercolor{frametitle}{fg=mygreen,bg=mywhite}
+\setbeamerfont{frametitle}{family=\fontfamily{sanspro}, series=\bfseries}
+\setbeamerfont{framesubtitle}{family=\fontfamily{sanspro}, series=\bfseries}
 
 \begin{document}
-\begin{frame}{Imagemagick Cheatsheet}
+\begin{frame}
+\frametitle{Image Editing and Manipulation with Imagemagick}
+\framesubtitle{Cheat Sheet}
 \Fontvii
+\vspace{-20.5pt}
 
 % =======================================================
+\begin{exampleblock}{}
+Imagemagick is a command-line image editing program that ships pre-installed with many standard UNIX-like OS's. The lack of manual GUI manipulation greatly aids in maintaining a reproducible workflow.
+\end{exampleblock}
+\vspace{8.5pt}
 
+% =======================================================
 \begin{minipage}[0.2\textheight]{\textwidth}
 	\begin{columns}[T]
 		\column{.12\textwidth}
@@ -28,9 +40,10 @@
 			\end{exampleblock}	
 		\column{.12\textwidth}
 			\includegraphics[height=.5in]{im.png}\\
+			\includegraphics[height=.5in]{im-red.png}
 		\column{.35\textwidth}
 			\begin{exampleblock}{Trim + Border}
-				\texttt{\$ convert im-border.png -trim im.png}
+				\texttt{\$ convert im-border.png -trim im.png}\\
 				\texttt{\$ convert img.png -bordercolor red -border 5x5 im-red.png}
 			\end{exampleblock}	
 	\end{columns}
@@ -65,7 +78,8 @@
 
 % =======================================================
 
-\includegraphics[height=.15in]{cc.large.png} Authored by \href{http://jsta.github.io}{Joseph Stachelek}; See full docs @
-\href{http://www.imagemagick.org}{Imagemagick}
+\href{https://creativecommons.org/licenses/by/4.0/}{\includegraphics[height=.15in]{cc.large.png}} Authored by \href{http://jsta.github.io}{Joseph Stachelek}; See full docs @
+\href{http://www.imagemagick.org}{Imagemagick}\\
+Updated: 2016-02 
 \end{frame}
 \end{document}

@@ -1,4 +1,7 @@
-images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png
+images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png im-red.png
+
+im-red.png:
+	convert im.png -bordercolor red -border 5x5 im-red.png
 
 im.png:
 	wget https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png
@@ -31,12 +34,12 @@ all: render
 	@echo "cheatsheat pdf built"
 
 clean:
-	rm *.snm
-	rm *.nav
-	rm *.log
-	rm *.toc
-	rm *.png
-	rm *.out
-	rm *.aux
-	rm *.gif
+	-rm *.snm
+	-rm *.nav
+	-rm *.log
+	-rm *.toc
+	-rm *.png
+	-rm *.out
+	-rm *.aux
+	-rm *.gif
 	
