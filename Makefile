@@ -1,3 +1,5 @@
+images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png
+
 im.png:
 	wget https://upload.wikimedia.org/wikipedia/commons/0/0d/Imagemagick-logo.png
 	mv Imagemagick-logo.png im.png
@@ -22,13 +24,19 @@ im-montage.png:
 cc.large.png:
 	wget http://mirrors.creativecommons.org/presskit/icons/cc.large.png
 
-render: Imagemagick-logo.png cc.large.png
+render: images
+	xelatex imagemagick_cheetsheet.tex
 
 all: render
+	@echo "cheatsheat pdf built"
 
 clean:
 	rm *.snm
 	rm *.nav
 	rm *.log
 	rm *.toc
-	rm *.vrb
+	rm *.png
+	rm *.out
+	rm *.aux
+	rm *.gif
+	
