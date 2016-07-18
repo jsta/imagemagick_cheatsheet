@@ -1,4 +1,10 @@
-images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png im-red.png
+.PHONY: help
+.DEFAULT_GOAL := help
+
+help:
+	@grep -E '^[a-zA-Z0-9\./\_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
+images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png im-red.png ## images
 
 im-red.png:
 	convert im.png -bordercolor red -border 5x5 im-red.png
@@ -27,10 +33,10 @@ im-montage.png:
 cc.large.png:
 	wget http://mirrors.creativecommons.org/presskit/icons/cc.large.png
 
-render: images
+render: images ## render tex
 	xelatex imagemagick_cheetsheet.tex
 
-all: render
+all: render ## all
 	@echo "cheatsheat pdf built"
 
 clean:
