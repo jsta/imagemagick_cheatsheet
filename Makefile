@@ -4,7 +4,7 @@
 help:
 	@grep -E '^[a-zA-Z0-9\./\_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png im-red.png ## images
+images: im.png im-border.png im-trim.png im-sepia.png im-animate.gif im-montage.png cc.large.png im-red.png im-crop.png ## images
 
 im-red.png:
 	convert im.png -bordercolor red -border 5x5 im-red.png
@@ -16,6 +16,9 @@ im.png:
 
 im-border.png:
 	convert im.png -bordercolor black -border 5x5 im-border.png
+	
+im-crop.png: ## im-crop.png
+	convert im.png -gravity East -crop 50x100%+0+0 im-crop.png
 
 im-trim.png:
 	convert im.png -trim im-trim.png
@@ -23,7 +26,7 @@ im-trim.png:
 im-sepia.png:
 	convert im.png -sepia-tone 65% im-sepia.png
 	
-im-animate.gif:
+im-animate.gif: ## animation
 	convert -delay 10 -morph 10 im.png im-sepia.png im-animate.gif
 	gifsicle --unoptimize im-animate.gif | convert - im-animate-%d.png
 

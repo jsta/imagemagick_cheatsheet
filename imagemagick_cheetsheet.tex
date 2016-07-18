@@ -24,6 +24,7 @@
 \vspace{-20.5pt}
 
 % =======================================================
+\vspace{4pt}
 \begin{exampleblock}{}
 Imagemagick is a command-line image editing program that ships pre-installed with many standard UNIX-like OS's. The lack of manual GUI manipulation greatly aids in maintaining a reproducible workflow.
 \end{exampleblock}
@@ -38,10 +39,11 @@ Imagemagick is a command-line image editing program that ships pre-installed wit
 			\begin{exampleblock}{Change filetype}
 				\texttt{\$ convert im-border.tif im-border.png}
 			\end{exampleblock}	
-		\column{.12\textwidth}
+		\column{.11\textwidth}
 			\includegraphics[height=.5in]{im.png}\\
+		\column{.11\textwidth}
 			\includegraphics[height=.5in]{im-red.png}
-		\column{.35\textwidth}
+		\column{.25\textwidth}
 			\begin{exampleblock}{Trim + Border}
 				\texttt{\$ convert im-border.png -trim im.png}\\
 				\texttt{\$ convert img.png -bordercolor red -border 5x5 im-red.png}
@@ -50,12 +52,20 @@ Imagemagick is a command-line image editing program that ships pre-installed wit
 \end{minipage}\\
 
 % =======================================================
+\vspace{\abovedisplayskip}
 
 \begin{minipage}[0.2\textheight]{\textwidth}
 	\begin{columns}[T]
-		\column{.25\textwidth}
+		\column{.11\textwidth}
+			\includegraphics[width=0.25in]{im-crop.png}\\
+		\column{.35\textwidth}
+			\begin{exampleblock}{Crop}
+				\texttt{\$ convert im.png -gravity East -crop 50x100\%+0+0 im-crop.png}\\
+			\end{exampleblock}	
+			
+		\column{.22\textwidth}
 			\includegraphics[width=1in]{im-montage.png}\\
-		\column{.75\textwidth}
+		\column{.30\textwidth}
 			\begin{exampleblock}{Montage}
 				\texttt{\$ montage im.png im-sepia.png -geometry +2+2 -tile 2x im-montage.png}\\
 			\end{exampleblock}	
@@ -68,7 +78,7 @@ Imagemagick is a command-line image editing program that ships pre-installed wit
 	\begin{columns}[T]
 		\column{.15\textwidth}
 			\animategraphics[loop,autoplay,width=.75\linewidth]{2}{im-animate-}{0}{11}
-		\column{.85\textwidth}
+		\column{.89\textwidth}
 			\begin{exampleblock}{Animated gifs}
 				\texttt{\$ convert -delay 10 im.png im-sepia.png im-animate.gif}\\
 				\texttt{\$ convert -delay 10 -morph 10 im.png im-sepia.png im-animate.gif}
