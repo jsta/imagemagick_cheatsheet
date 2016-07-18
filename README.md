@@ -13,6 +13,8 @@ Animations depend on javascript (LaTeX package `animate`) and are not viewable i
 
 `$ cd imagemagick_cheatsheet` 
 
+`$ make im-animate.gif`
+
 `$ make all` 
 
 `$ make clean`
